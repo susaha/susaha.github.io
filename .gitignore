@@ -1,0 +1,14 @@
+.idea/*
+venv/*
+bibtex/*.txt~
+Msc2014/imgs/*.svg
+cvpr2016/*.svg
+cvpr2016/imgs/*.svg
+*.svg
+*.txt~
+svg_backup/*.svg
+svg_backup/*.png
+accv2016/
+*.kate-swp
+brookes/*.svg
+icvss2015/*.svg

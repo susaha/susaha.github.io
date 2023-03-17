@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Action localisation and instance segmentation </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css.old.website/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css.old.website/1-col-portfolio.css" rel="stylesheet">
+    
+     <!-- sidebar menu  downloaded from: http://startbootstrap.com/template-overviews/simple-sidebar/ -->
+    <link href="../css.old.website/simple-sidebar.css" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+           <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <!--<li>
+                        <a href="http://sahasuman.bitbucket.org">Home</a>
+                    </li>-->
+                     <li>  <a href="#cvpr2016-home">Home</a>  </li>
+		    <!--<li>  <a href="#abstract">Abstract</a>  </li>-->		    
+		    <li>  <a href="#overview">Overview</a>  </li>
+		    <li>  <a href="#publication">Submitted paper</a>
+<!--		    <li>  <a target="_blank" href="#">Code</a>  </li>-->
+		    <li>  <a href="#qty-res">Results</a> </li> 
+		    <!--<li>  <a href="#video">Video</a> </li>       
+		    <li>  <a href="#qty-res"> Quantitative Results</a> </li>
+		    <li>  <a href="#visual-results">Visual Results</a>  </li>
+		    <li>  <a href="#sup1"> RPN Recall-vs-IoU </a> </li>
+		    <li>  <a href="#sup2">  Ablation Study </a> </li>
+		    <li>  <a href="#sup3">  Label smoothing and mAP </a> </li>
+		    <li>  <a href="#sup4">  Train/Test Computing Time </a> </li>-->
+		    
+		    <!-- Home - Overview - Related Publication - Code - Results -->
+                   
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading -->
+         <!-- Page Heading -->
+       <!-- <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                <a name="cvpr2016-home">                
+                Deep Learning for Detecting Multiple Space-Time Action Tubes in Videos  
+                </a>
+                </h1>
+            </div>
+        </div>-->
+        <!-- /.row -->
+	
+		<h1>
+                <a name="cvpr2016-home">
+                <!--<br><br><br>-->
+                Spatio-temporal action tube detection and instance level segmentation of actions
+                </a>
+                </h1>
+    
+        <!-- Project One -->
+        <div class="row">        
+        <!-- sidebar navigation meny -->
+	 <!-- <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">   
+	      <li>  <a href="#cvpr2016-home">Project Home</a>  </li>
+	      <li>  <a href="#abstract">Abstract</a>  </li>
+	      <li>  <a href="#publication">Related Publication</a>  </li>
+	       <li>  <a href="#overview">Overview of the Approach</a>  </li>	      
+	      <li>  <a target="_blank" href="https://bitbucket.org/sahasuman/bmvc2016_code">Code</a>  </li>
+	      <li>  <a href="#video">Video</a> </li>       
+	      <li>  <a href="#qty-res"> Quantitative Results</a> </li>
+              <li>  <a href="#visual-results">Visual Results</a>  </li>
+              <li>  <a href="#sup1"> RPN Recall-vs-IoU </a> </li>
+              <li>  <a href="#sup2">  Ablation Study </a> </li>
+              <li>  <a href="#sup3">  Label smoothing and mAP </a> </li>
+              <li>  <a href="#sup4">  Train/Test Computing Time </a> </li>
+                       
+            </ul>
+	  </div>-->
+	   <!-- intro teaser image -->
+            <div class="col-md-12">		    
+                    <img class="img-responsive" src="imgs/intro.png" alt="">  
+                    <p>             
+            A video sequence taken from the <a target="_blank" href="http://liris.cnrs.fr/harl2012/"> LIRIS HARL human action detection dataset </a>
+            plotted in space-and time.
+	  (a) A top down view of the video plotted with the detected action tubes 
+	  of class `handshaking' in green, and `person leaves baggage unattended' in red. 
+	  Each action is located to be within a space-time tube.
+	  (b) A side view of the same space-time detections. 
+	  Note that no action is detected at the beginning of the video when 
+	  there is human motion present in the video.
+	  (c) The detection and instance segmentation result of 
+	  two actions occurring simultaneously in a single frame.
+		  </p>
+		 <!-- <a name="video"> <h3> Video </h3> </a>
+		  <iframe width="500" height="315" src="https://www.youtube.com/embed/WjFssjVKUPc"> </iframe> -->
+		  		                  
+            </div>
+         </div> 
+      
+        <div class="row">
+            <div class="col-md-6">
+                <a name="video"> <h3> Video </h3> </a>                
+		  <iframe width="500" height="315" src="https://www.youtube.com/embed/fqqgFQzmkfM"> </iframe> 
+            </div>
+            <div class="col-md-6">
+                 <h3>
+                <a name="abstract">                
+                Abstract
+                </a>
+                </h3>
+                <p align="justify">                
+                Current state-of-the-art human action recognition is focused on the classification of temporally trimmed videos in which only one action occurs per frame.
+In this work we address the problem of action localisation and instance segmentation in which multiple concurrent actions of the same class may be segmented out of an image sequence.
+We cast the action tube extraction as an energy maximisation problem in which configurations of region proposals in each frame are assigned a cost and the best action tubes are selected via two 
+passes of dynamic programming. One pass associates region proposals in space and time for each action category, and another pass is used to solve for the tube's temporal extent and to enforce a smooth 
+label sequence through the video. In addition, by taking advantage of recent work on action foreground-background segmentation, we are able to associate each tube with class-specific segmentations.
+We demonstrate the performance of our algorithm on the challenging <a target="_blank" href="http://liris.cnrs.fr/harl2012/"> LIRIS HARL human action detection dataset </a>
+and achieve a new state-of-the-art result which is 14.3 times better than previous methods.
+
+		</p>
+               
+            </div>
+        </div>
+        
+     
+        <!-- Project Two -->
+       <!-- <div class="row">            
+            <div class="col-md-12">
+                <h3>
+                <a name="abstract">                
+                Abstract
+                </a>
+                </h3>
+                <p style="text-align:justify;">               
+                In this work we propose a new approach to the spatiotemporal localisation (detection) and classification of multiple concurrent actions within
+		temporally untrimmed videos.
+		Our framework is composed of three stages.
+		In stage 1, a cascade of deep region proposal and detection networks are employed to classify regions of each video frame potentially containing an action of interest.
+		In stage 2, appearance and motion cues are combined by merging the detection boxes and softmax classification scores generated by the two cascades.
+		In stage 3, sequences of detection boxes most likely to be associated with a single action instance, called {action tubes},
+		are constructed by solving two optimisation problems via dynamic programming.
+		While in the first pass action paths spanning the whole video are built by linking detection boxes over time using their class-specific scores
+		and their spatial overlap,
+		in the second pass temporal trimming is performed by ensuring label consistency for all constituting detection boxes.
+		We demonstrate the performance of our algorithm on the challenging UCF101, J-HMDB-21 and LIRIS-HARL datasets,
+		achieving new state-of-the-art results across the board
+		and significantly lower detection latency at test time.		
+                </p>
+             </div>
+        </div>-->
+         
+         <hr>
+         
+          <div class="row">            
+            <div class="col-md-12">
+               
+                <h3>
+                <a name="publication">                
+                Submitted Paper:
+                </a>
+                </h3>
+                 <h4>
+                Spatio-temporal action tube detection and instance level segmentation of actions,
+                submitted to IEEE Int. Conf. on Computer Vision and Pattern Recognition (CVPR) 2016.     
+                </h4>
+                <h4>        
+                 <a href="http://sahasuman.bitbucket.org"> Suman Saha</a>,
+                 <a href="http://gurkirt.github.io/">Gurkirt Singh</a>, 
+                 <a href="https://sites.google.com/site/mikesapi/">Michael Sapienza</a>,
+                 <a href="http://www.robots.ox.ac.uk/~tvg/"> Philip H. S. Torr </a>,
+                 <a href="http://cms.brookes.ac.uk/staff/FabioCuzzolin/">Fabio Cuzzolin.</a>
+                </h4>                
+                <!-- <a href="#"> bibtex </a> |  -->              
+                <!-- <a href="#"> paper </a> | -->
+                <!-- <a href="#"> suplementary material </a> | -->
+                <a href="#" name="code"> code </a> | 
+                <a href="#video"> video </a>
+            </div>
+        </div>
+        
+          <hr>
+         
+         <div class="row">
+         <h3>
+         The following videos show some intermediate results generated by the Human motion segmentation [1] algorithm on LIRIS HARL human action detection dataset.
+         </h3>
+         </div>
+         
+         <div class="row">
+            <div class="col-md-6">
+           
+		  <iframe width="500" height="315" src="https://www.youtube.com/embed/iaZ2x1LqFxA"> </iframe> 
+		   <p> Optical flow trajectories are generated using [2].
+            </div>
+              <div class="col-md-6">
+              
+		  <iframe width="500" height="315" src="https://www.youtube.com/embed/skzG4uolcyw"> </iframe> 
+		  <p> Supervoxels are extracted using the hierarchical graph-based video segmentation algorithm [4]. </p>
+            </div>
+         </div>
+         
+         
+         <div class="row">
+            <div class="col-md-6">
+           
+           
+		  <iframe width="500" height="315" src="https://www.youtube.com/embed/cPjbjAPm2jo"> </iframe> 
+		   <p> Finally binary segmentations are obtained using [1].</p>
+            </div>
+              <div class="col-md-6">
+              <br><br>
+		  <p align="justify">
+         The human motion segmentation [1] algorithm  generates binary segmentations of human actions in space and time.
+	It extracts human motion from video using long term trajectories[2].
+	In order to detect static human body parts which don't carry any motion but are still significant in the context of the whole action,
+	it attaches scores to these regions using a human shape prior from a deformable part-based (DPM) model [3]. 
+	At test time our region proposal method uses the binary segmented images [1],
+	and generates region proposal hypotheses using all possible combinations of 2D connected components present in the binary map.
+         </p>
+            </div>
+         </div>
+         
+         <div class="row">
+                
+         <h4> References </h4>
+         <ul>
+         <li>
+         [1] Human Action Segmentation With Hierarchical Supervoxel Consistency,
+         Lu, Jiasen and Xu, ran and Corso, Jason J., CVPR June 2015.
+         </li>
+         <li>
+         [2] Large displacement optical flow: descriptor matching in variational motion estimation,
+         T. Brox and J. Malik, IEEE Transactions on Pattern Analysis and Machine Intelligence, 2011.
+         </li>
+         <li>
+         [3] Object detection with discriminatively trained part based models.
+         P. Felzenszwalb and R. Girshick and D. McAllester and D. Ramanan, PAMI, 2010.        
+         </li>
+         <li>
+         [4] Efficient hierarchical graph-based video segmentation, M. Grundmann, V. Kwatra, M. Han, and I. Essa. 
+            In IEEE Conference on Computer Vision and Pattern Recognition, 2010.
+            </li>
+         </ul>
+         </div>
+         
+          
+            
+            <hr>
+         
+         <div class="row">            
+            <div class="col-md-12">  
+            <a name="overview">
+            <br><br><br>
+             <h3>Overview of the spatio-temporal action localisation pipeline</h3>
+             </a>
+              <img class="img-responsive" src="imgs/overview.png" alt="">
+              <p>
+              Overview of the proposed action detection pipeline.
+    From the raw RGB video frames (a), region proposals are extracted (b), and passed to a fine-tuned CNN from which features are extracted (c).
+    The features are used to score each region proposal (d), and from the scores, action paths are generated (e) and subsequently refined and trimmed in time (f).
+              </p>
+	    </div>
+	</div>	 
+	        
+        <hr>
+        
+         <div class="row">            
+            <div class="col-md-12">            
+             <h3>
+             <a name="qty-res">             
+             Qualitative results on <a target="_blank" href="http://liris.cnrs.fr/harl2012/"> LIRIS HARL human action detection dataset </a>
+             </a>
+             </h3>
+              <img class="img-responsive" src="imgs/visual-1.png" alt="">                
+        
+	    </div>
+        </div>
+      <!-- Footer -->  
+     <br><br><br><br> 
+     <hr>
+     <hr>
+     
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>
+                    Webpage designed by <a href="http://getbootstrap.com/2.3.2/index.html"> Bootstrap </a>.
+                    </p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+      
+    
+     <div style="text-align:center;"><script type="text/javascript" src="http://services.webestools.com/cpt_visitors/40087-10-9.js"></script></div>
+    
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    
+</body>
+
+</html>

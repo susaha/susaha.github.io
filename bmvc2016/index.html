@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> BMVC2016-publication: Deep Learning for Detecting Multiple Space-Time Action Tubes in Videos   </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css.old.website/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css.old.website/1-col-portfolio.css" rel="stylesheet">
+    
+     <!-- sidebar menu  downloaded from: http://startbootstrap.com/template-overviews/simple-sidebar/ -->
+    <!-- <link href="../css/simple-sidebar.css" rel="stylesheet"> -->
+    
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+           <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <!--<li>
+                        <a href="http://sahasuman.bitbucket.org">Home</a>
+                    </li>-->
+                     <li>  <a href="#bmvc2016-home">Home</a>  </li>
+		    <!--<li>  <a href="#abstract">Abstract</a>  </li>-->		    
+		    <li>  <a href="#overview">Overview</a>  </li>
+		    <li>  <a href="#publication">Related Publication</a>
+		    <li>  <a target="_blank" href="https://bitbucket.org/sahasuman/bmvc2016_code">Code</a>  </li>
+		    <li>  <a href="#qty-res">Results</a> </li> 
+		    <li> <a href="#liris-harl-eval">LIRIS HARL evaluation</a> </li>
+		    <!--<li>  <a href="#video">Video</a> </li>       
+		    <li>  <a href="#qty-res"> Quantitative Results</a> </li>
+		    <li>  <a href="#visual-results">Visual Results</a>  </li>
+		    <li>  <a href="#sup1"> RPN Recall-vs-IoU </a> </li>
+		    <li>  <a href="#sup2">  Ablation Study </a> </li>
+		    <li>  <a href="#sup3">  Label smoothing and mAP </a> </li>
+		    <li>  <a href="#sup4">  Train/Test Computing Time </a> </li>-->
+		    
+		    <!-- Home - Overview - Related Publication - Code - Results -->
+                   
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading -->
+         <!-- Page Heading -->
+       <!-- <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                <a name="bmvc2016-home">                
+                Deep Learning for Detecting Multiple Space-Time Action Tubes in Videos  
+                </a>
+                </h1>
+            </div>
+        </div>-->
+        <!-- /.row -->
+	
+		<h1>
+                <a name="bmvc2016-home">
+                <!--<br><br><br>-->
+                Deep Learning for Detecting Multiple Space-Time Action Tubes in Videos  
+                </a>
+                </h1>
+    
+        <!-- Project One -->
+        <div class="row">        
+        <!-- sidebar navigation meny -->
+	 <!-- <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">   
+	      <li>  <a href="#bmvc2016-home">Project Home</a>  </li>
+	      <li>  <a href="#abstract">Abstract</a>  </li>
+	      <li>  <a href="#publication">Related Publication</a>  </li>
+	       <li>  <a href="#overview">Overview of the Approach</a>  </li>	      
+	      <li>  <a target="_blank" href="https://bitbucket.org/sahasuman/bmvc2016_code">Code</a>  </li>
+	      <li>  <a href="#video">Video</a> </li>       
+	      <li>  <a href="#qty-res"> Quantitative Results</a> </li>
+              <li>  <a href="#visual-results">Visual Results</a>  </li>
+              <li>  <a href="#sup1"> RPN Recall-vs-IoU </a> </li>
+              <li>  <a href="#sup2">  Ablation Study </a> </li>
+              <li>  <a href="#sup3">  Label smoothing and mAP </a> </li>
+              <li>  <a href="#sup4">  Train/Test Computing Time </a> </li>
+                       
+            </ul>
+	  </div>-->
+	   <!-- intro teaser image -->
+            <div class="col-md-12">		    
+                    <img class="img-responsive" src="imgs/intro-new.png" alt="">  
+                    <p>             
+              Action tube detection in a `biking' video taken from UCF-101 dataset. 
+               The detection boxes in each frame are linked up to form space-time action tubes.
+             <!-- (a) Side view of the detected action tubes where each colour represents a particular instance.             
+              (b) Illustration of the ground-truth temporal duration for comparison.-->              
+              (a) Viewing the video as a 3D volume with selected image frames;
+              notice that we are able to detect multiple action instances in both space and time.
+	      (b) Top-down view.
+	      Our method can detect several (more than 2) action instances concurrently, as shown in the above Fig.
+		  </p>
+		 <!-- <a name="video"> <h3> Video </h3> </a>
+		  <iframe width="500" height="315" src="https://www.youtube.com/embed/WjFssjVKUPc"> </iframe> -->
+		  		                  
+            </div>
+         </div> 
+      
+        <div class="row">
+            <div class="col-md-6">
+                <a name="video"> <h3> Video </h3> </a>                
+		  <iframe width="500" height="315" src="https://www.youtube.com/embed/vBZsTgjhWaQ"> </iframe> 
+            </div>
+            <div class="col-md-6">
+                 <h3>
+                <a name="abstract">                
+                Abstract
+                </a>
+                </h3>
+                <p align="justify">                
+                In this work we propose a new approach to the spatiotemporal localisation (detection) and classification of multiple concurrent actions within
+		temporally untrimmed videos.
+		Our framework is composed of three stages.
+		In stage 1, a cascade of deep region proposal and detection networks are employed to classify regions of each video frame potentially containing an action of interest.
+		In stage 2, appearance and motion cues are combined by merging the detection boxes and softmax classification scores generated by the two cascades.
+		In stage 3, sequences of detection boxes most likely to be associated with a single action instance, called {action tubes},
+		are constructed by solving two optimisation problems via dynamic programming.
+		While in the first pass action paths spanning the whole video are built by linking detection boxes over time using their class-specific scores
+		and their spatial overlap,
+		in the second pass temporal trimming is performed by ensuring label consistency for all constituting detection boxes.
+		We demonstrate the performance of our algorithm on the challenging UCF101, J-HMDB-21 and LIRIS-HARL datasets,
+		achieving new state-of-the-art results across the board
+		and significantly lower detection latency at test time.	
+		</p>
+               
+            </div>
+        </div>
+        
+       
+
+        <!-- Project Two -->
+       <!-- <div class="row">            
+            <div class="col-md-12">
+                <h3>
+                <a name="abstract">                
+                Abstract
+                </a>
+                </h3>
+                <p style="text-align:justify;">               
+                In this work we propose a new approach to the spatiotemporal localisation (detection) and classification of multiple concurrent actions within
+		temporally untrimmed videos.
+		Our framework is composed of three stages.
+		In stage 1, a cascade of deep region proposal and detection networks are employed to classify regions of each video frame potentially containing an action of interest.
+		In stage 2, appearance and motion cues are combined by merging the detection boxes and softmax classification scores generated by the two cascades.
+		In stage 3, sequences of detection boxes most likely to be associated with a single action instance, called {action tubes},
+		are constructed by solving two optimisation problems via dynamic programming.
+		While in the first pass action paths spanning the whole video are built by linking detection boxes over time using their class-specific scores
+		and their spatial overlap,
+		in the second pass temporal trimming is performed by ensuring label consistency for all constituting detection boxes.
+		We demonstrate the performance of our algorithm on the challenging UCF101, J-HMDB-21 and LIRIS-HARL datasets,
+		achieving new state-of-the-art results across the board
+		and significantly lower detection latency at test time.		
+                </p>
+             </div>
+        </div>-->
+         
+         <hr>
+         
+          <div class="row">            
+            <div class="col-md-12">
+               
+                <h3>
+                <a name="publication">                
+                Related Publication:
+                </a>
+                </h3>
+                 <h4>
+                Deep Learning for Detecting Multiple Space-Time Action Tubes in Videos, British Machine Vision Conference (BMVC)  2016.       
+                </h4>
+                <h4>        
+                 <a href="http://sahasuman.bitbucket.org"> Suman Saha</a>,
+                 <a href="http://gurkirt.github.io/">Gurkirt Singh</a>, 
+                 <a href="https://sites.google.com/site/mikesapi/">Michael Sapienza</a>,
+                 <a href="http://www.robots.ox.ac.uk/~tvg/"> Philip H. S. Torr</a>,
+                 <a href="http://cms.brookes.ac.uk/staff/FabioCuzzolin/">Fabio Cuzzolin.</a>
+                </h4>                
+                
+                <a href="http://arxiv.org/abs/1608.01529" target="_blank">
+                arXiv
+                </a> |
+                <a href="https://drive.google.com/file/d/0B56r0lkehn6WLXdzU2lyZXpINDA/view?usp=sharing" target="_blank">
+                Paper+supplementary
+                </a> |
+                <a href="https://bitbucket.org/sahasuman/bmvc2016_code" name="code" target="_blank">Code</a> |
+                <a href="https://drive.google.com/open?id=0B56r0lkehn6WZHZqdmtiVFhMWUE" target="_blank">
+                Poster
+                </a>
+                
+                </div>
+        </div>
+        
+          <hr>
+         
+         <div class="row">            
+            <div class="col-md-12">  
+            <a name="overview">
+            <br><br><br>
+             <h3>Overview of the spatio-temporal action localisation pipeline</h3>
+             </a>
+              <img class="img-responsive" src="imgs/bmvc2016.png" alt="">
+              <p>
+              At test time, (a) RGB and flow images are passed to
+    (b) two separate region proposal networks (RPNs).
+    (c) Each network outputs region proposals with associated actionness scores.
+    (d) Each appearance/flow detection network takes as input the relevant image and RPN-generated region proposals, and
+    (e) outputs detection boxes and softmax probability scores.
+    (f) Spatial and flow detections are fused and
+    (g) linked up to generate class-specific action paths spanning the whole video.
+    (h) Finally the action paths are temporally trimmed to form action tubes.
+              </p>
+	    </div>
+	</div>	        
+        <hr>
+         <div>
+         <h3>
+         <a name="qty-res"> 
+         <br><br><br> 
+         Quantitative action detection results: 
+         </a>         
+         </h3>
+         </div>
+         
+         <br>  
+         
+         
+          <div class="row">
+            <ul>
+	      <li>	      
+    For UCF101, we noticed that the optical flow based RPN and Fast-RCNN models trained using VGG-16 image-mean [123.6800, 116.7790, 103.9390] perform better than the flow models trained using flow image-mean [128.00, 128.00, 128.00]. For this reason, we trained our UCF101 flow-based RPN and Fast-RCNN networks using VGG-16 image-mean.
+	      </li>
+	      <li>
+	    <b> New:</b>
+    There was a minor bug in the second pass DP code used for temporal trimming of action paths. We corrected the code and generated the evaluation results again on UCF-101 test spli1. As the videos of J-HMDB-21 are temporally trimmed, there is no need to generate the results again. The new evaluation results are shown in the table below. The new figures are almost the same as earlier results.
+	      </li>	      
+	      </ul> 
+         </div>
+         
+         <div class="row">
+         <h4> <a> Table 1: Quantitative action detection results (mAP) on the UCF-101 dataset. </a></h4>
+         
+         <!-- ucf-101 table-->
+           <table class="table table-striped">
+	      <thead>
+		<tr style="border-top: 2px solid">
+		  <th>Spatio-temporal overlap threshold δ</th>
+		  <th>0.05</th>
+		  <th>0.1</th>
+		  <th>0.2</th>
+		  <th>0.3</th>
+		  <th>0.4</th>
+		  <th>0.5</th>
+		  <th>0.6</th>
+		</tr>
+	      </thead>
+	      <tbody>
+	      <!-- table row -->
+	      <tr>
+	      <td>Yu et al. [2]</td>
+	      <td>42.80</td>
+	      <td>-</td>
+	      <td>-</td>
+	      <td>-</td>
+	      <td>-</td>
+	      <td>-</td>
+	      <td>-</td>	      
+	      </tr>
+	      <!-- table row -->
+	      <tr>
+	      <td>Weinzaepfel et al. [1]</td>
+	      <td>54.28</td>
+	      <td>51.68</td>
+	      <td>46.77</td>
+	      <td>37.82</td>
+	      <td>-</td>
+	      <td>-</td>
+	      <td>-</td>	      
+	      </tr>
+	       <!-- table row -->
+	     <tr>
+	      <td>Our (appearance detection model)</td>
+	      <td>67.56</td>
+	      <td>65.45</td>
+	      <td>56.55</td>
+	      <td>48.52</td>
+	      <td>39.00</td>
+	      <td>30.64</td>
+	      <td>22.89</td>	      
+	      </tr>
+	       <!-- table row -->
+	     <tr>
+	      <td>Our (motion detection model)</td>
+	      <td>65.19</td>
+	      <td>62.94</td>
+	      <td>55.68</td>
+	      <td>46.32</td>
+	      <td>37.55</td>
+	      <td>27.84</td>
+	      <td>18.75</td>	      
+	      </tr>
+	        <!-- table row -->
+	     <tr  style="border-bottom: 2px solid">
+	      <td><b>Our (appearance + motion fusion)</b></td>
+	      <td><b> 78.85</b></td>
+	      <td><b> 76.12</b></td>
+	      <td><b> 66.36</b></td>
+	      <td><b> 54.93</b></td>
+	      <td><b> 45.24</b></td>
+	      <td><b> 34.82</b></td>
+	      <td><b> 25.86</b></td>	     	         
+	      </tr>
+	      </tbody>
+	    </table>
+	    <br>
+	    <!--jhmdb table-->
+	    <h4> <a> Table 2: Quantitative action detection results (mAP) on the J-HMDB-21 dataset. </a></h4>
+           <table class="table table-striped">
+	      <thead>
+		<tr style="border-top: 2px solid">
+		  <th>Spatio-temporal overlap threshold δ</th>		  
+		  <th>0.1</th>
+		  <th>0.2</th>
+		  <th>0.3</th>
+		  <th>0.4</th>
+		  <th>0.5</th>
+		  <th>0.6</th>
+		  <th>0.7</th>
+		</tr>
+	      </thead>
+	      <tbody>
+	      <!-- table row -->
+	      <tr>
+	      <td>Gkioxari and Malik[3]</td>
+	      <td>-</td>
+	      <td>-</td>
+	      <td>-</td>
+	      <td>-</td>
+	      <td>53.3</td>
+	      <td>-</td>
+	      <td>-</td>	      
+	      </tr>
+	      <!-- table row -->
+	      <tr>
+	      <td>Wang et al.[4]</td>
+	      <td>-</td>
+	      <td>-</td>
+	      <td>-</td>
+	      <td>-</td>
+	      <td>56.4</td>
+	      <td>-</td>
+	      <td>-</td>     
+	      </tr>
+	      <!-- table row -->
+	      <tr>
+	      <td>Weinzaepfel et al. [1]</td>
+	      <td>-</td>
+	      <td>63.1</td>
+	      <td>63.5</td>
+	      <td>62.2</td>
+	      <td>60.7</td>
+	      <td>-</td>
+	      <td>-</td>     
+	      </tr>
+	      
+	      
+	       <!-- table row -->
+	     <tr>
+	      <td>Our (appearance detection model)</td>
+	      <td>52.99</td>
+	      <td>52.94</td>
+	      <td>52.57</td>
+	      <td>52.22</td>
+	      <td>51.34</td>
+	      <td>49.55</td>
+	      <td>45.65</td>	      
+	      </tr>
+	       <!-- table row -->
+	     <tr>
+	      <td>Our (motion detection model)</td>
+	       <td>69.63</td>
+	      <td>69.59</td>
+	      <td>69.49</td>
+	      <td>69.00</td>
+	      <td>67.90</td>
+	      <td>65.25</td>
+	      <td>54.35</td>      
+	      </tr>
+	        <!-- table row -->
+	     <tr  style="border-bottom: 2px solid">
+	      <td><b>Our (appearance + motion fusion)</b></td>
+	      <td><b>72.65</b></td>
+	      <td><b>72.63</b></td>
+	      <td><b>72.59</b></td>
+	      <td><b>72.24</b></td>
+	      <td><b>71.50</b></td>
+	      <td><b>68.73</b></td>
+	      <td><b>56.57</b></td>	     	         
+	      </tr>
+	      </tbody>
+	    </table>
+	    <br>
+	     <!--LIRIS tables liris harl evaluation tool -->	      
+	    <h4> 
+	    <a name="liris-harl-eval"> 
+	    Table 3: Quantitative action detection results on the LIRIS-HARL dataset
+	    (evaluation metric used: LIRIS HARL evaluation [5]).
+	  
+	    </a>
+	    </h4>
+	    <p>
+	    We report space-time detection results by fixing the
+	    threshold quality level to 10% for the four thresholds [5] and measuring temporal precision
+	    and recall along with spatial precision and recall, to produce an integrated score. We refer
+	    the readers to [5] for more details on LIRIS HARL’s evaluation metrics.<br>
+	    <b>Abbreviations used in this table</b>:
+	    <b>I-SR</b>: Integrated spatial recall; <b>I-SP</b>: Integrated spatial precision;
+	    <b>I-TR</b>: Integrated temporal recall; <b>I-TP</b>: Integrated temporal precision;
+	    <b>IQ</b>: Integrated quality score.
+	    </p>	    
+           <table class="table table-striped">
+	      <thead>
+		<tr style="border-top: 2px solid">
+		  <th>Method</th>		  
+		  <th>Recall-10</th>
+		  <th>Precision-10</th>
+		  <th>F1-Score-10</th>
+		  <th>I-SR</th>
+		  <th>I-SP</th>
+		  <th>I-TR</th>
+		  <th>I-TP</th>
+		  <th>IQ</th>
+		</tr>
+	      </thead>
+	      <tbody>
+	      <!-- table row -->
+	      <tr>
+	       <td>VPULABUAM-13-IQ [6]</td>		  
+		  <td>0.04</td>
+		  <td>0.08</td>
+		  <td>0.05</td>
+		  <td>0.02</td>
+		  <td>0.03</td>
+		  <td>0.03</td>
+		  <td>0.03</td>
+		  <td>0.03</td>      
+	      </tr>
+	      <!-- table row -->
+	      <tr>
+	       <td>IACAS-51-IQ [7]</td>		  
+		  <td>0.03</td>
+		  <td>0.04</td>
+		  <td>0.03</td>
+		  <td>0.01</td>
+		  <td>0.01</td>
+		  <td>0.03</td>
+		  <td>00.0</td>
+		  <td>0.02</td>
+	      </tr>
+	      <!-- table row -->
+	      <tr style="border-bottom: 2px solid">
+	        <th>Our (appearance + motion fusion)</th>		  
+		  <th>0.568</th>
+		  <th>0.595</th>
+		  <th>0.581</th>
+		  <th>0.5383</th>
+		  <th>0.3402</th>
+		  <th>0.4802</th>
+		  <th>0.4739</th>
+		  <th>0.458</th> 
+	      </tr>
+	      </tbody>
+	    </table>
+	    <br>
+	      <!--LIRIS tables liris harl [1] evaluation -->	      
+	    <h4> 
+	    <a> 
+	    Table 4: Quantitative action detection results (mAP) on LIRIS-HARL for different δ
+	    (evaluation metric used: mAP [1]).
+	    </a>
+	    </h4>	       
+           <table class="table table-striped">
+	      <thead>
+		<tr style="border-top: 2px solid">
+		  
+		</tr>
+	      </thead>
+	      <tbody>
+	      <!-- table row -->
+	      <tr>
+	      	<th>Spatio-temporal overlap threshold δ</th>  
+	      	<th>0.1</th> 
+	      	<th>0.2</th> 
+	      	<th>0.3</th> 
+	      	<th>0.4</th>
+	      	<th>0.5</th> 		  
+	      </tr>
+	      <!-- table row -->
+	      <tr>
+		<td>Appearance detection model</td>
+		<td>46.21</td>
+		<td>41.94</td>
+		<td>31.38</td>
+		<td>25.22</td>
+		<td>20.43</td>	            
+	      </tr>
+	       <tr>
+		<td>Motion detection model</td>
+		<td>52.76</td>
+		<td>46.58</td>
+		<td>35.54</td>
+		<td>26.11</td>
+		<td>19.28</td>	            
+	      </tr>
+	      <!-- table row -->
+	      <tr>
+	       <td>Appearance+motion fusion with one DP pass</td>
+		<td>38.1</td>
+		<td>29.46</td>
+		<td>23.58</td>
+		<td>14.54</td>
+		<td>9.59</td>
+             </tr>
+             <tr style="border-bottom: 2px solid">
+	       <th>Appearance+motion fusion with two DP passes</th>
+		<th>54.18</th>
+		<th>49.10</th>
+		<th>35.91</th>
+		<th>28.03</th>
+		<th>21.36</th>
+             </tr>
+	      </tbody>
+	    </table>
+	    
+	    
+	    <!-- references -->
+	    <h5><b>References</b></h5>
+	     <ul>
+	      <li>
+	      [1] Philippe Weinzaepfel, Zaid Harchaoui, and Cordelia Schmid. Learning to track for spatio-temporal action localization. In IEEE Int. Conf. on Computer Vision and Pattern 
+	      Recognition, June 2015.
+	      </li>
+	      <li>
+	      [2] Gang Yu and Junsong Yuan. Fast action proposals for human action detection and search. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 
+	      pages 1302–1311, 2015.
+	      </li>
+	      <li>
+	      [3] G Gkioxari and J Malik. Finding action tubes. In IEEE Int. Conf. on Computer Vision
+		  and Pattern Recognition, 2015.
+	      </li>
+	      <li>
+	      [4] Limin Wang, Yu Qiao, Xiaoou Tang, and Luc Van Gool. Actionness estimation using
+	      hybrid fully convolutional networks. In CVPR, pages 2708–2717, 2016.
+	      </li>
+	      <li>
+	      [5] C. Wolf, J. Mille, E. Lombardi, O. Celiktutan, M. Jiu, E. Dogan, G. Eren, M. Baccouche, E. Dellandrea, C.-E. Bichot, C. Garcia, and B. Sankur. Evaluation of video
+	      activity localizations integrating quality and quantity measurements. In Computer Vision and Image Understanding, 127:14–30, 2014.
+	    </li>
+	     <li>
+	     [6] Juan C. SanMiguel and Sergio Suja. Liris harl competition participant, 2012. Video Processing and Understanding Lab, Universidad Autonoma of Madrid, Spain, http:
+	      //liris.cnrs.fr/harl2012/results.html.
+	     </li>	     
+	     <li>
+	     [7] Yonghao He, Hao Liu, Wei Sui, Shiming Xiang, and Chunhong Pan. Liris harl competition participant, 2012. Institute of Automation, Chinese Academy of Sciences, Beijing
+	      http://liris.cnrs.fr/harl2012/results.html.
+	     </li>
+	      </ul> 
+         </div>
+         
+	
+        <hr>
+        <div> 
+        <h3>
+        <a name="visual-results">                 
+        Visual results        
+        </a>
+        </h3>
+        </div>
+         
+         <div class="row">            
+            <div class="col-md-12">            
+             <h4>Action detection/localisation results on UCF101 dataset</h4>
+              <img class="img-responsive" src="imgs/ucf101-1.png" alt="">  
+              <p>
+              Ground-truth boxes are in green, detection boxes in red. The top row shows correct detections, the bottom one contains examples of more mixed results. In the last frame, 3 out of 4 
+	      `Fencing' instances are nevertheless correctly detected.
+              </p>
+	    </div>
+        </div>
+        
+         <hr>
+         
+          <div class="row">            
+            <div class="col-md-12">            
+             <h4>Sample space-time action localisation results on JHMDB-21 dataset</h4>
+              <img class="img-responsive" src="imgs/jhmdb-21.png" alt="">  
+              <p>
+              Left-most three frames: accurate detection examples. Right-most three frames: mis-detection examples.
+              </p>
+	    </div>
+        </div>
+        
+         <hr>
+         
+           <div class="row">            
+            <div class="col-md-12">            
+             <h4>Sample space-time action localisation results on LIRIS-HARL dataset</h4>
+              <img class="img-responsive" src="imgs/liris.png" alt="">  
+              <p>
+              Frames from the space-time action detection results on LIRIS-HARL, some of which include single actions involving more than one person like ‘handshaking’ and ‘discussion’.
+              Left-most 374 three frames: accurate detection examples. Right-most three frames: mis-detection examples.
+              </p>
+	    </div>
+        </div>
+        
+         <hr>
+         
+         <div class="row">            
+            <div class="col-md-12">            
+             <h4>Sample spatio-temporal localisation results on UCF-101</h4>
+              <img class="img-responsive" src="imgs/ucf101-supl-res.png" alt="">  
+              <p>
+              Each row represents a  UCF-101 test video clip. Ground-truth bounding boxes are in green, detection boxes in red.
+              </p>
+	    </div>
+        </div>
+        
+        <hr>
+        
+        <div class="row">            
+            <div class="col-md-12">            
+             <h3>
+             <a name="sup1">             
+             Selective Search vs RPN action proposals
+             </a>
+             </h3>
+              <img class="img-responsive" src="imgs/sup-1.png" alt="">  
+              <p>
+             Performance comparison between Selective Search (SS) and RPN-based region proposals on four groups of action classes (vertical columns) in UCF-101. Top row: recall vs. IoU curve for SS. 
+Bottom row: results for RPN-based region proposals.
+             </p>
+	    </div>
+        </div>
+        
+        <hr>
+        
+         <div class="row">            
+            <div class="col-md-12">            
+             <h3>
+             <a name="sup2">            
+              An ablation study of the spatio-temporal detection results (mAP) on UCF-101.
+             </a>
+             </h3>
+              <img class="img-responsive" src="imgs/sup-2.png" alt="">                
+	    </div>
+        </div>
+        
+        <hr>
+        
+         <div class="row">            
+            <div class="col-md-12">            
+             <h3>
+             <a name="sup3">             
+              Impact of label smoothing on detection performance (mAP) on UCF-101.
+             </a>
+             </h3>
+              <img class="img-responsive" src="imgs/sup-3.png" alt="">  
+              
+	    </div>
+        </div>
+        
+        <hr>
+        
+         <div class="row">            
+            <div class="col-md-12">            
+             <h3>
+             <a name="sup4">             
+              Train/Test Computing Time
+             </a>
+             </h3>
+              <img class="img-responsive" src="imgs/sup-4.png" alt="">  
+               <p> Note: that the reference numbers are in line with our <a href="#publication"> BMVC2016 suplementary material.</a> <p>
+        
+	    </div>
+        </div>
+      <!-- Footer -->  
+     <br><br><br><br> 
+     <hr>
+     <hr>
+     
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>
+                    Webpage designed by <a href="http://getbootstrap.com/2.3.2/index.html"> Bootstrap </a>.
+                    </p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+      
+    
+     <div style="text-align:center;"><script type="text/javascript" src="http://services.webestools.com/cpt_visitors/40087-10-9.js"></script></div>
+    
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    
+</body>
+
+</html>
