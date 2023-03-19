@@ -1,0 +1,25 @@
+******************************************************************
+Finally  YOU NEED TO CHANGE the HTTPs origin remote which pointing to an HTTP url into an SSH url.
+******************************************************************
+$ git remote set-url origin git@github.com:susaha/<project-name.git>
+e.g.
+$ git remote set-url origin git@github.com:susaha/cvpr2022.git
+
+# cp -r /home/susaha/.ssh/ ~/
+  cp -r /home/susaha/.ssh/id_ed25519_4_git* ~/.ssh/
+
+ $ git remote set-url origin https://github.com/susaha/cvpr2022.git
+
+
+ git remote add origin https://github.com/susaha/cvpr2022.git
+
+ git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+
+ git remote set-url origin git@github.com:susaha/daformer_panoptic.git
+
+ git remote set-url origin git@github.com:susaha/susaha.github.io.git
+
+
+
+
+
