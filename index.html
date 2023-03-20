@@ -55,6 +55,29 @@
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/42961429" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <!-- /Yandex.Metrika counter -->
+
+<!--I have introduced this style tag on March 20 2023-->
+  <style>
+    .sumanColumn1 {
+    float: left;
+    width: 0%;
+    padding: 10px;
+    }
+    .sumanColumn2 {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    }
+    .sumanRow::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+    img {
+    float: left;
+    margin-right: 50px; /* add some space between image and text */
+    }
+    </style>
 </head>
 <body>
     <!--[if lt IE 10]>
@@ -101,17 +124,26 @@
     <!-- NAVIGATION END -->
 
     <!-- ABOUT SECTION-->
-    <div id="section-about" class="c-screen-about o-screen-about" data-contentPosition="1">
-      <div class="o-screen-about__col">
-        <figure class="c-screen-about__image">
-          <span></span>
-          <img src="pic/about_me/my_pic.png" alt="">
-        </figure>
-      </div>
+
+
+<!--    <div id="section-about" class="c-screen-about o-screen-about" data-contentPosition="1"> -->   <!-- this is the original one-->
+
+
+    <div id="section-about" class="sumanRow" data-contentPosition="1"> <!--    I have added this one on March 20 2023-->
+
+<!--      This block I deactivated on March 20 2023-->
+<!--      <div class="o-screen-about__col">-->
+<!--        <figure class="c-screen-about__image">-->
+<!--          <span></span>-->
+<!--          <img src="pic/about_me/my_pic.png" alt="">-->
+<!--        </figure>-->
+<!--      </div>-->
       
-      <div class="o-screen-about__col">
-        <h2 class="u-mb-5">Suman Saha</h2>
-        <span class="c-screen-about__caption">Postdoctoral researcher at CVL (Computer Vision Lab) , ETH Zürich, Switzerland </span>
+<!--      <div class="o-screen-about__col">  --> <!--      I have commented this original line-->
+
+      <div class="sumanColumn2">
+<!--        <h2 class="u-mb-5">Suman Saha</h2>-->
+<!--        <span class="c-screen-about__caption">Postdoctoral researcher at CVL (Computer Vision Lab) , ETH Zürich, Switzerland </span>-->
 
         <ul class="c-socials u-mb-35">
 
@@ -166,6 +198,11 @@
 <!--        <li><a class="c-button c-button&#45;&#45;simple-text" href="https://ee.ethz.ch/the-department/people-a-z/person-detail.MjUwMzMz.TGlzdC8zMjc5LC0xNjUwNTg5ODIw.html"><b>Official Webpage</b></a></li>-->
 <!--        <li><a class="c-button c-button&#45;&#45;bold-text u-mb-30" href="http://sahasuman.bitbucket.io/CV/SumanSaha-CV.pdf" target="_blank">download cv</a></li>-->
 <!--      </ul>-->
+
+
+        <img src="pic/about_me/my_pic.png" alt="" width="400">  <!--        I have added this line on March 20 2023-->
+        <h2 class="u-mb-5">Suman Saha</h2>
+        <h3 class="u-mb-5">Postdoctoral Researcher, Computer Vision Lab. ETH Zürich, Switzerland</h3>
 
         <p class="u-mb-10" style="text-align: justify">
           <span class="u-block">
